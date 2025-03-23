@@ -163,8 +163,8 @@ fn main() {
                       </div>
                     </div>
                     <div>
-                      <div className="card p-6 bg-gray-50 dark:bg-gray-800/50">
-                        <pre className="!bg-transparent !p-0 !border-0">
+                      <div className="w-full max-w-full overflow-hidden rounded-lg bg-gray-900 p-4 md:p-6">
+                        <pre className="overflow-x-auto text-sm text-gray-200">
                           <code>
                             {`// Interactive demo
 let input = "ami banglay gan gai";
@@ -176,8 +176,9 @@ let options = Options {
     smart_quote: true,
     auto_correct: true
 };
+
 let enhanced = obadh::convert_with_options(
-    input, 
+    input,
     options
 );`}
                           </code>
