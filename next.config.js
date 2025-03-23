@@ -4,10 +4,7 @@ const nextConfig = {
   images: {
     unoptimized: true, // Required for static export
   },
-  basePath: process.env.NODE_ENV === 'production' ? '/unmukto.org' : '', // GitHub Pages repository name
-  assetPrefix: process.env.NODE_ENV === 'production' ? '/unmukto.org/' : '', // GitHub Pages repository name with trailing slash
-  reactStrictMode: true,
-  swcMinify: true,
+  trailingSlash: true, // Add trailing slashes to all URLs
 }
 
 module.exports = nextConfig

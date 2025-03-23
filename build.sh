@@ -3,21 +3,25 @@
 # Print commands and exit on errors
 set -xe
 
-# Clean previous build
+# Clean and create docs directory
 rm -rf docs
 mkdir docs
 
-# Build Next.js project (will output to 'out' directory)
+# Build the Next.js project
 npm run build
 
-# Move contents from 'out' to 'docs'
+# Move the built files to docs directory
 mv out/* docs/
 
-# Clean up out directory
-rm -rf out
-
-# Create .nojekyll file to bypass Jekyll processing
+# Create a .nojekyll file to bypass Jekyll processing
 touch docs/.nojekyll
+
+# Create a subdirectory for the GitHub Pages deployment
+mkdir -p docs/unmukto.org
+cp -r docs/* docs/unmukto.org/ 2>/dev/null || true
+
+# Clean up
+rm -rf out
 
 # Create CNAME file if you have a custom domain
 # echo "unmukto.org" > docs/CNAME

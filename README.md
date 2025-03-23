@@ -1,24 +1,52 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Unmukto.org
 
-## Getting Started
+A community-driven initiative developing modern tools for Bengali language computing. The website serves as the landing page and project hub for Unmukto.org's open-source initiatives.
 
-First, run the development server:
+## Tech Stack
+
+- **Framework**: [Next.js 14](https://nextjs.org)
+- **Language**: [TypeScript](https://www.typescriptlang.org)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com)
+- **Animations**: [Framer Motion](https://www.framer.com/motion)
+- **Fonts**: Space Grotesk, Inter via [next/font](https://nextjs.org/docs/app/building-your-application/optimizing/fonts)
+
+## Development
 
 ```bash
+# Install dependencies
+npm install
+
+# Start development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+# Build for production
+./build.sh
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The development server will run at [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Deployment
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+The site is configured for GitHub Pages deployment:
+
+1. The `build.sh` script generates static files in the `/docs` directory
+2. Commits to `main` branch automatically deploy to [unmukto.org](https://unmukto.org)
+3. Static assets and meta images are served from the `/public` directory
+
+## Project Structure
+
+- `/src/app` - Next.js app router pages and components
+- `/public` - Static assets and meta images
+- `/docs` - Generated static site for GitHub Pages
+- `build.sh` - Build script for GitHub Pages deployment
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## License
+
+This project is open source and available under the [MIT License](LICENSE).
 
 ## Learn More
 
