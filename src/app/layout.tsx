@@ -14,11 +14,73 @@ const spaceGrotesk = Space_Grotesk({
 
 export const metadata: Metadata = {
   title: "Unmukto.org - Open Source Bengali Computing",
-  description: "A community-driven initiative developing modern, open-source solutions for Bengali language computing.",
+  description: "A community-driven initiative developing modern tools for Bengali language computing. Current focus: high-performance text input engine with Avro Phonetic layout support.",
+  keywords: ['Bengali Computing', 'Avro Phonetic', 'Open Source', 'Bangla', 'Text Input', 'Unicode', 'Rust'],
+  authors: [{ name: 'Unmukto.org Community' }],
   openGraph: {
-    title: "Unmukto.org - Open Source Bengali Computing",
-    description: "Modern open-source solutions for Bengali language computing",
-    type: "website",
+    type: 'website',
+    locale: 'en_US',
+    url: 'https://unmukto.org',
+    siteName: 'Unmukto.org',
+    title: 'Unmukto.org - Open Source Bengali Computing',
+    description: 'A community-driven initiative developing modern tools for Bengali language computing.',
+    images: [
+      {
+        url: '/og-image.png', // 1200x630px
+        width: 1200,
+        height: 630,
+        alt: 'Unmukto.org - Open Source Bengali Computing'
+      },
+      {
+        url: '/og-image-square.png', // 600x600px
+        width: 600,
+        height: 600,
+        alt: 'Unmukto.org Icon'
+      }
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Unmukto.org - Open Source Bengali Computing',
+    description: 'A community-driven initiative developing modern tools for Bengali language computing.',
+    images: ['/twitter-image.png'], // 1200x600px
+    creator: '@unmukto_org'
+  },
+  icons: {
+    icon: '/favicon.ico',
+    shortcut: '/favicon-32x32.png',
+    apple: '/apple-touch-icon.png',
+    other: [
+      {
+        rel: 'icon',
+        type: 'image/png',
+        sizes: '16x16',
+        url: '/favicon-16x16.png',
+      },
+      {
+        rel: 'icon',
+        type: 'image/png',
+        sizes: '32x32',
+        url: '/favicon-32x32.png',
+      },
+      {
+        rel: 'mask-icon',
+        url: '/safari-pinned-tab.svg',
+        color: '#4F46E5'
+      }
+    ]
+  },
+  manifest: '/site.webmanifest',
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
   },
 };
 
