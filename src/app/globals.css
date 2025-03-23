@@ -1,26 +1,134 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --primary: 79, 70, 229;
+    --primary-light: 99, 102, 241;
+    --text-primary: 17, 24, 39;
+    --text-secondary: 75, 85, 99;
+    --background: 255, 255, 255;
+    --surface: 249, 250, 251;
+    --surface-hover: 243, 244, 246;
+    --accent: 124, 58, 237;
+  }
+
+  .dark {
+    --primary: 129, 140, 248;
+    --primary-light: 165, 180, 252;
+    --text-primary: 243, 244, 246;
+    --text-secondary: 156, 163, 175;
+    --background: 17, 24, 39;
+    --surface: 31, 41, 55;
+    --surface-hover: 55, 65, 81;
+    --accent: 167, 139, 250;
   }
 }
 
+@layer components {
+  .glass-effect {
+    @apply bg-white/80 dark:bg-gray-900/80 backdrop-blur border-b border-gray-200/50 dark:border-gray-700/50;
+  }
+
+  .card {
+    @apply bg-white dark:bg-gray-900 rounded-2xl border border-gray-200/50 dark:border-gray-700/50 shadow-lg;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center px-6 py-3 bg-[rgb(var(--primary))] text-white rounded-full text-sm font-medium transition-all hover:bg-[rgb(var(--primary-light))] active:scale-[0.98] disabled:opacity-50 disabled:pointer-events-none;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center px-6 py-3 bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white rounded-full text-sm font-medium transition-all hover:bg-gray-200 dark:hover:bg-gray-700 active:scale-[0.98] disabled:opacity-50 disabled:pointer-events-none;
+  }
+
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-[rgb(var(--primary))] to-[rgb(var(--accent))];
+  }
+}
+
+@layer utilities {
+  .transition-all {
+    @apply transition duration-200 ease-in-out;
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+    100% {
+      transform: translateY(0px);
+    }
+  }
+}
+
+/* Code block styling */
+pre {
+  @apply bg-gray-50/50 dark:bg-gray-800/50 rounded-xl p-4 overflow-x-auto font-mono text-sm leading-6;
+}
+
+code {
+  @apply text-gray-900 dark:text-gray-100;
+}
+
+/* Base styles */
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  min-height: 100vh;
+  font-feature-settings: "ss01", "ss02", "cv01", "cv02";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  @apply bg-[rgb(var(--background))];
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-space-grotesk);
+  font-feature-settings: "ss01", "ss02", "cv01", "cv02";
+  @apply tracking-tight;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  @apply w-2;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gray-200 dark:bg-gray-700 rounded-full;
+}
+
+/* Material Design elevation shadows */
+.elevation-1 {
+  box-shadow: 0 1px 3px rgb(var(--text-primary) / 0.1), 0 1px 2px -1px rgb(var(--text-primary) / 0.1);
+}
+
+.elevation-2 {
+  box-shadow: 0 4px 6px -1px rgb(var(--text-primary) / 0.1), 0 2px 4px -2px rgb(var(--text-primary) / 0.1);
+}
+
+.elevation-3 {
+  box-shadow: 0 10px 15px -3px rgb(var(--text-primary) / 0.1), 0 4px 6px -4px rgb(var(--text-primary) / 0.1);
+}
+
+/* Material Design transitions */
+.transition-material {
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
 }
