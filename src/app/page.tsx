@@ -1,4 +1,5 @@
 import { AnimatedTitle, AnimatedText, AnimatedCard, AnimatedSection } from "./components/AnimatedComponents";
+import { ThemeToggle } from './components/ThemeToggle';
 
 export default function Home() {
   return (
@@ -13,6 +14,7 @@ export default function Home() {
             <a href="#projects" className="text-sm hover:text-[rgb(var(--primary))] transition-all">
               Projects
             </a>
+            <ThemeToggle />
             <a 
               href="https://github.com/nsssayom/obadh_engine" 
               target="_blank" 
@@ -96,7 +98,7 @@ fn main() {
         <div className="max-w-7xl mx-auto">
           <AnimatedSection>
             <div className="max-w-2xl mx-auto text-center mb-16">
-              <span className="inline-block px-4 py-2 rounded-full bg-[rgb(var(--primary))/10 text-[rgb(var(--primary))] text-sm font-medium mb-4">
+              <span className="inline-block px-4 py-2 rounded-full bg-[rgb(var(--primary))/10] text-[rgb(var(--primary))] text-sm font-medium mb-4">
                 Active Projects
               </span>
               <h2 className="text-3xl font-bold mb-4 font-display">
@@ -109,16 +111,16 @@ fn main() {
 
             <AnimatedCard>
               <div className="card overflow-hidden">
-                <div className="p-8 md:p-12">
-                  <div className="grid lg:grid-cols-2 gap-12">
+                <div className="p-6 md:p-8">
+                  <div className="grid lg:grid-cols-2 gap-8">
                     <div>
                       <div className="flex items-center gap-3 mb-6">
                         <h3 className="text-2xl font-bold font-display gradient-text">Obadh</h3>
-                        <span className="px-3 py-1 rounded-full bg-[rgb(var(--primary))/10 text-[rgb(var(--primary))] text-xs font-medium">
+                        <span className="px-3 py-1 rounded-full bg-[rgb(var(--primary))/10] text-[rgb(var(--primary))] text-xs font-medium">
                           Active Development
                         </span>
                       </div>
-                      <p className="text-[rgb(var(--text-secondary))] mb-8 leading-relaxed">
+                      <p className="text-[rgb(var(--text-secondary))] mb-8">
                         A Rust-based implementation of the Avro Phonetic keyboard layout. Features include:
                         - Optimized text processing engine
                         - Full Unicode compliance
@@ -162,11 +164,16 @@ fn main() {
                         </a>
                       </div>
                     </div>
-                    <div>
-                      <div className="w-full max-w-full overflow-hidden rounded-lg bg-gray-900 p-4 md:p-6">
-                        <pre className="overflow-x-auto text-sm text-gray-200">
-                          <code>
-                            {`// Interactive demo
+                    <div className="relative">
+                      <div className="absolute inset-0 bg-gradient-to-r from-indigo-500/10 to-purple-500/10 rounded-2xl blur-3xl" />
+                      <div className="card p-8">
+                        <div className="flex items-center gap-2 mb-6">
+                          <div className="w-3 h-3 rounded-full bg-red-400" />
+                          <div className="w-3 h-3 rounded-full bg-amber-400" />
+                          <div className="w-3 h-3 rounded-full bg-green-400" />
+                        </div>
+                        <pre>
+                          <code>{`// Interactive demo
 let input = "ami banglay gan gai";
 let output = obadh::convert(input);
 // Output: আমি বাংলায় গান গাই
@@ -180,8 +187,7 @@ let options = Options {
 let enhanced = obadh::convert_with_options(
     input,
     options
-);`}
-                          </code>
+);`}</code>
                         </pre>
                       </div>
                     </div>
